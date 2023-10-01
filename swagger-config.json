@@ -1,0 +1,172 @@
+{
+  "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Products API",
+      "description": "API documentation for the Products project"
+    },
+    "host": "localhost:5000", 
+    "basePath": "/api",
+    
+    "schemes": [
+      "http"
+    ],
+    
+    "paths": {
+      "/products": {
+        "get": {
+          "tags": ["Product"],
+          "summary": "Get a list of products",
+          "description": "Returns a list of all products available.",
+          "parameters": [],
+          "responses": {
+            "200": {
+              "description": "Successful response"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/products/create": {
+        "post":{
+          "tags": ["Product"],
+          "summary": "Create a new product",
+          "description": "Creates a new product with the provided details.",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  },
+                  "image": {
+                    "example": "any"
+                  },
+                  "description": {
+                    "example": "any"
+                  },
+                  "price": {
+                    "example": "any"
+                  },
+                  "category": {
+                    "example": "any"
+                  },
+                  "brand": { 
+                    "example": "any"
+                  },
+                  "stockQuantity": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Product created successfully"
+            },
+            "400": {
+              "description": "Please provide all required fields"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+          
+        },
+      
+      "/products/edit/{productid}": {
+        "patch": {
+          "tags": ["Product"],
+          "summary": "Edit a product",
+          "description": "Edits an existing product with the provided details.",
+          "parameters": [
+            {
+              "name": "productid",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  },
+                  "image": {
+                    "example": "any"
+                  },
+                  "description": {
+                    "example": "any"
+                  },
+                  "price": {
+                    "example": "any"
+                  },
+                  "category": {
+                    "example": "any"
+                  },
+                  "brand": { 
+                    "example": "any"
+                  },
+                  "stockQuantity": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+            
+          ],
+          "responses": {
+            "200": {
+              "description": "Product updated successfully"
+            },
+            "404": {
+              "description": "Product not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+
+      "/products/delete/{productid}": {
+          "delete":{
+            "tags": ["Product"],
+            "summary": "Delete a product",
+            "description": "Deletes an existing product.",
+            "parameters": [
+              {
+                "name": "productid",
+                "in": "path",
+                "required": true,
+                "type": "string",
+                "description": "ID of the product to delete"
+              }
+            ],
+            "responses": {
+            "200": {
+              "description": "Product deleted successfully"
+            },
+            "404": {
+              "description": "Product not found"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+          }
+        }
+    }
+  }
+
+      
