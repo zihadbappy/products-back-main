@@ -20,15 +20,6 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
-            steps {
-                sh'''
-                    echo "Deploying into products server"
-                    ssh ubuntu@54.173.251.103 docker service update --image transformation2/snt-jenkins-products-back:v$BUILD_NUMBER products_backend
-                '''
-            }
-    }
-
 
 }
 }
