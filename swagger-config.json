@@ -5,7 +5,7 @@
       "title": "Products API",
       "description": "API documentation for the Products project"
     },
-    "host": "localhost:5000", 
+    "host": "", 
     "basePath": "/api",
     
     "schemes": [
